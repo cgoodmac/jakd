@@ -17,6 +17,13 @@
 #
 
 class User < ActiveRecord::Base
+
+  attr_accessor :cards
+
+  def initialize
+    @cards = []
+  end
+
   has_and_belongs_to_many :games
   has_secure_password
 
