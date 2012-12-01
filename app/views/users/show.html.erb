@@ -1,1 +1,20 @@
-<%= image_tag @user.avatar %>
+<div class="profile">
+  <div class="profile_pic">
+    <%= image_tag @user.avatar %>
+  </div><!-- profile_pic -->
+  <div class="user_info">
+    <h2><%= @user.username %></h2>
+    <span><%= @user.name %></span> 
+    <br>
+    <span>Current Balance: $<%= @user.balance %></span> 
+    <br>
+    <span>Games Won: <%= @user.games_won %></span> 
+    <br>
+    <span>Games lost: <%= @user.games_lost %></span> 
+    <br>
+    <span>Total Amount Won: $<%= @user.amount_won %></span> 
+    <br>
+    <span>Total Amount Lost: $<%= @user.amount_lost %></span> 
+  </div><!-- .user_info -->
+</div><!-- .profile -->
+
