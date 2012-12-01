@@ -8,7 +8,9 @@
 </head>
 <body>
   <nav>
-    <%= links_if_logged_in %>
+    <%= play_if_logged_in %>
+    <%= login_or_logout_links %>
+    <%= register_link %>
   </nav>
   <%= yield %>
 
