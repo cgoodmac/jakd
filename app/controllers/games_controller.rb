@@ -1,8 +1,15 @@
 class GamesController < ApplicationController
+  
   def play
-    @game = Game.create
-    @game.users << @auth
 
+    if @game
+      @game.users << @auth
+    else 
+      @game = Game.create
+      @game.users << @auth
+    end
 
   end
+  
 end
+
