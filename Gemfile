@@ -12,6 +12,7 @@ gem 'carrierwave'
 gem 'deck-of-cards'
 gem 'annotate'
 gem 'rails-footnotes'
+gem 'bcrypt-ruby'
 
 
 # Gems used only for assets and not required
