@@ -1,12 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  before_filter :authenticate_user
+  before_filter :auth
   private
-  def authenticate_user
+  def auth
      if session[:id]
-        @authenticated_user = User.find(session[:id])
+        @auth = User.find(session[:id])
      else
-        @authenticated_user = nil
+        @auth = nil
         # redirect_to login_path
      end
   end
