@@ -7,8 +7,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
+  <nav>
+    <%= play_if_logged_in %>
+    <%= login_or_logout_links %>
+    <%= register_link %>
+  </nav>
+  <%= yield %>
 
 </body>
 </html>

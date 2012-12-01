@@ -1,0 +1,7 @@
+<%= form_tag '/login', :class => 'form-inline' do %>
+
+  <%= text_field_tag 'username', nil, :placeholder => "Username", :class => 'input-medium' %>
+  <%= password_field_tag 'password', nil, :placeholder => "Password", :class => 'input-medium' %>
+  <%= submit_tag 'Login', :class => 'btn' %>
+
+<% end %>
