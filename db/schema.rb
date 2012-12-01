@@ -23,4 +23,18 @@ ActiveRecord::Schema.define(:version => 20121201172619) do
     t.integer "user_id"
   end
 
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "name"
+    t.string   "password_digest"
+    t.string   "avatar"
+    t.decimal  "balance",         :default => 1000.0
+    t.integer  "games_won",       :default => 0
+    t.integer  "games_lost",      :default => 0
+    t.decimal  "amount_won",      :default => 0.0
+    t.decimal  "amount_lost",     :default => 0.0
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
+  end
+
 end
