@@ -43,6 +43,15 @@ class GamesController < ApplicationController
 
 
     # if user total is greater than 21 and they have a card with a rank of Ace then make Ace value = 1
+    # if sum == 21
+    #   winpath
+    # elsif sum > 21
+    #   if theres an Ace
+    #     ace =1
+    #   else
+    #     losepath
+    #   end
+    # end
 
 
   end
