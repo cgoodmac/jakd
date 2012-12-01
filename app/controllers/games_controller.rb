@@ -41,6 +41,10 @@ class GamesController < ApplicationController
     #get user total
     @user_total = card1 + card2
 
+
+    # if user total is greater than 21 and they have a card with a rank of Ace then make Ace value = 1
+
+
   end
 end
 
