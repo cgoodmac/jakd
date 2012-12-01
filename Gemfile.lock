@@ -141,7 +141,6 @@ PLATFORMS
 DEPENDENCIES
   annotate
   bcrypt-ruby
-08d7fcda52ff9bc99d13f679db9b95d8bc84a5a3
   carrierwave
   coffee-rails (~> 3.2.1)
   deck-of-cards
