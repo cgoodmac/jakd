@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201172619) do
+ActiveRecord::Schema.define(:version => 20121201205101) do
 
   create_table "games", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(:version => 20121201172619) do
     t.decimal  "amount_lost",     :default => 0.0
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+    t.boolean  "logged_in"
   end
 
 end

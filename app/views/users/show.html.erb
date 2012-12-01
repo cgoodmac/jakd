@@ -4,16 +4,16 @@
   </div><!-- profile_pic -->
   <div class="user_info">
     <h2><%= @user.username %></h2>
-    <span><%= @user.name %></span> 
+    <span><%= @user.name %></span>
     <br>
-    <span>Current Balance: $<%= @user.balance %></span> 
+    <span>Current Balance: <%= number_to_currency(@user.balance) %></span>
     <br>
-    <span>Games Won: <%= @user.games_won %></span> 
+    <span>Games Won: <%= @user.games_won %></span>
     <br>
-    <span>Games lost: <%= @user.games_lost %></span> 
+    <span>Games lost: <%= @user.games_lost %></span>
     <br>
-    <span>Total Amount Won: $<%= @user.amount_won %></span> 
+    <span>Total Amount Won: <%= number_to_currency(@user.amount_won) %></span>
     <br>
-    <span>Total Amount Lost: $<%= @user.amount_lost %></span> 
+    <span>Total Amount Lost: <%= number_to_currency(@user.amount_lost) %></span>
   </div><!-- .user_info -->
 </div><!-- .profile -->
