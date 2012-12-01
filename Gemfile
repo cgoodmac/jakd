@@ -13,6 +13,7 @@ gem 'deck-of-cards'
 gem 'annotate'
 gem 'rails-footnotes'
 gem 'bcrypt-ruby'
+gem 'rmagick'
 
 
 # Gems used only for assets and not required
