@@ -3,5 +3,6 @@ class GamesController < ApplicationController
     @game = Game.create
     @game.users << @auth
 
+    
   end
 end
