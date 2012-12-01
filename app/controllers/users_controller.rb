@@ -16,12 +16,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if params[:id].to_i == @auth.id
       @user = User.find(params[:id])
-    else
       #redirect to root if @auth is not there
-      redirect_to root_path
-    end
+      # redirect_to root_path
   end
 
   def show
