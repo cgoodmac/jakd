@@ -21,4 +21,11 @@ class User < ActiveRecord::Base
   has_secure_password
 
   mount_uploader :avatar, AvatarUploader
+
+  scope :online_users, where(:logged_in => true)
+
+  def set_login(status)
+    self.logged_in = status
+    self.save
+  end
 end
