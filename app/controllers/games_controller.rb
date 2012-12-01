@@ -9,20 +9,37 @@ class GamesController < ApplicationController
       @game.users << @auth
     end
 
-    #adding cards to the dealer
+    #adding cards to the dealer's array
     @dealer = []
     @deck = DeckOfCards.new
     @deck.shuffle
-    a = @deck.draw
-    @dealer << a
-    b = @deck.draw
-    @dealer << b
+    d1 = @deck.draw
+    @dealer << d1
+    d2 = @deck.draw
+    @dealer << d2
 
+    #adding cards to the users's array, @card defined in attr_accessor, being stored in session
     @auth.cards = []
-    c = @deck.draw
-    @auth.cards << c
-    d = @deck.draw
-    @auth.cards << d
+    c1 = @deck.draw
+    @auth.cards << c1
+    c2 = @deck.draw
+    @auth.cards << c2
+
+    #getting value of card1 and card2
+    card1 = @game.users[0].cards[0].value
+    card2 = @game.users[0].cards[1].value
+
+    #if cards are Jack, Queen or King, then set value at 10
+    if card1 > 10 && card1 < 14
+      card1 = 10
+    end
+
+    if card2 > 10 && card2 < 14
+      card2 = 10
+    end
+
+    #get user total
+    @user_total = card1 + card2
 
   end
 end
