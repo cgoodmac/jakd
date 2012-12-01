@@ -1,4 +1,19 @@
 <%= form for @user do |user| %>
-  <%= user.label 'Name' %>
-  <%= user.text 'Name' %>
+  <%= user.label :name %>
+  <%= user.text :name %>
+  <br>
+  <%= user.label :username %>
+  <%= user.text :username %>
+  <br>
+  <%= user.label :password %>
+  <%= user.text :password %>
+  <br>
+  <%= user.label :password_confirmation %>
+  <%= user.text :password_confirmation %>
+  <br>
+  <%= user.label :username %>
+  <%= user.text :username %>
+  <br>
+  <%= user.label :username %>
+  <%= user.text :username %>
 <% end %>
