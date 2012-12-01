@@ -9,6 +9,8 @@ module ApplicationHelper
 
   def links_if_logged_in
     if @auth
-      link_to "Play", 
+      link_to "Play", play_path
+    else
+    end
   end
 end
