@@ -6,4 +6,9 @@ module ApplicationHelper
       link_to "Login", login_path
     end
   end
+
+  def links_if_logged_in
+    if @auth
+      link_to "Play", 
+  end
 end
