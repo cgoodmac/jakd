@@ -7,12 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav>
-    <%= play_if_logged_in %>
-    <%= login_or_logout_links %>
-    <%= register_link %>
-  </nav>
-  <%= yield %>
-
+  <div id="container">
+    <nav>
+      <%= play_if_logged_in %>
+      <%= login_or_logout_links %>
+      <%= register_link %>
+    </nav>
+    <div id="yield" class="group">
+      <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

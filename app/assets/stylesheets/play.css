@@ -1,5 +1,14 @@
-#dealer {
-  height: 100px;
-  width: 100px;
+.user_pill {
+  width: 200px;
+  height: 300px;
+  margin: 20px;
+  padding: 10px;
+  float: left;
   border: 1px solid black;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }

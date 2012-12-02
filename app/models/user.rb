@@ -18,10 +18,11 @@
 
 class User < ActiveRecord::Base
 
-  attr_accessor :cards
+  attr_accessor :cards, :bet
 
   def initialize
     @cards = []
+    @bet
   end
 
   has_and_belongs_to_many :games

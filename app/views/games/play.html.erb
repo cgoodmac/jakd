@@ -1,29 +1,36 @@
-<div id="auth_user">
-  <%= image_tag @auth.avatar.url %>
-</div>
-<div id="dealer"><p>Dealer</p></div>
+<div id="auth_user" class="user_pill">
 
-<%= form_tag '/games', :remote => true do %>
+  <div id="user_name">
+    <p><%= @game.users[0].name %></p>
+  </div>
+  <%= image_tag @auth.avatar.url %>
+
+  <%= form_tag '/bet', :remote => true do %>
   <div id= "ready">
     <%= submit_tag 'Ready to Play' %>
   </div><!--#ready-->
   <div id= "bet">
-    How much do you want to bet?    <input type="number" placeholder="Insert $ amount" />
+    How much do you want to bet?    
+    <%= text_field_tag 'bet_amount', nil, :placeholder => 'Insert $ amount' %>
     <%= submit_tag 'Go', :id => 'go' %>
   </div><!--#bet-->
 
-  <div id="bet"></div>
+  <div id="user_info">
+  </div>
+
+  <div class="cards">
+    <%= @game.users[0].cards %><br>
+    <%= @user_total %>
+  </div>
 <% end %>
+</div><!--#auth_user-->
 
 
+<div id="dealer" class="user_pill">
+  <p>Dealer</p>
+  <div class="cards">
+    <%= @dealer %><br>
+    <%= @dealer_total %>
+  </div>
+</div><!--#dealer-->
 
-<%= @game.users[0].name %>
-<%= @game.users[0].cards %>
-<%= @user_total %>
-
-<br>
-
-Dealer
-
-<%= @dealer %>
-<%= @dealer_total %>

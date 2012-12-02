@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
 
-  def play
+  def start
 
     if @game
       @game.users << @auth
@@ -55,5 +55,10 @@ class GamesController < ApplicationController
 
 
   end
+
+  def bet
+    @auth.bet = params[:bet_amount]
+
+  end  
 end
 
