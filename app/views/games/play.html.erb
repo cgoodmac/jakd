@@ -1,10 +1,29 @@
-User
+<div id="auth_user">
+  <%= image_tag @auth.avatar.url %>
+</div>
+<div id="dealer"><p>Dealer</p></div>
+
+<%= form_tag '/games', :remote => true do %>
+  <div id= "ready">
+    <%= submit_tag 'Ready to Play' %>
+  </div><!--#ready-->
+  <div id= "bet">
+    How much do you want to bet?    <input type="number" placeholder="Insert $ amount" />
+    <%= submit_tag 'Go', :id => 'go' %>
+  </div><!--#bet-->
+
+  <div id="bet"></div>
+<% end %>
+
+
+
 <%= @game.users[0].name %>
 <%= @game.users[0].cards %>
-<%= @game.users[0].cards[0].value %>
-<%= @game.users[0].cards[1].value %>
+<%= @user_total %>
 
 <br>
 
 Dealer
+
 <%= @dealer %>
+<%= @dealer_total %>
