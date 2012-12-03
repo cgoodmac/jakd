@@ -1,0 +1,39 @@
+<div id="auth_user" class="user_pill">
+
+  <div id="user_name">
+    <p><%= @auth.name %></p>
+  </div>
+  <%= image_tag @auth.avatar.url %>
+
+  <div id= "ready">
+    <%= submit_tag 'Ready to Play' %>
+  </div><!--#ready-->
+
+  <%= form_tag '/play', :remote => true do %>
+  <div id= "bet">
+    How much do you want to bet?    
+    <%= text_field_tag 'bet_amount', nil, :placeholder => 'Insert $ amount' %>
+    <%= submit_tag 'Go', :id => 'go' %>
+  </div><!--#bet-->
+  <% end %>
+
+  <div id="user_info">
+  </div>
+  <div id="auth_cards">
+  </div>
+  <div id="hitorstay">
+    <%= button_to('Hit', :action => 'hit', :controller => 'games', :remote => true) %> 
+    <%= button_to('Stay', :action => 'stay', :controller => 'games', :remote => true) %> 
+  </div>
+
+</div><!--#auth_user-->
+
+
+<div id="dealer" class="user_pill">
+  <p>Dealer</p>
+  <div id="dealer_info">
+  </div>
+  <div id="dealer_cards">
+  </div>
+</div><!--#dealer-->
+

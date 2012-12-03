@@ -1,4 +1,11 @@
-User.delete_all
+ActiveRecord::Base.establish_connection
+ActiveRecord::Base.connection.tables.each do |table|
+  next if table == 'schema_migrations'
+
+  # MySQL and PostgreSQL
+  ActiveRecord::Base.connection.execute("TRUNCATE #{table}")
+
+end
 
 u1 = User.create(:username => 'nathan', :name => 'nathan', :password => '123', :password_confirmation => '123', :remote_avatar_url => 'http://www.zachhetrick.com/wp-content/uploads/2012/11/nathanbdb.jpg')
 u2 = User.create(:username => 'megan', :name => 'megan', :password => '123', :password_confirmation => '123', :remote_avatar_url => 'http://www.zachhetrick.com/wp-content/uploads/2012/11/friendofcj.jpg')

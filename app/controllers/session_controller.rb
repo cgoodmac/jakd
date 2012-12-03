@@ -17,6 +17,7 @@ class SessionController < ApplicationController
 
   def destroy
     @auth.set_login(false)
+    @game.set_is_in_progress(false)
     reset_session 
     redirect_to root_path
   end

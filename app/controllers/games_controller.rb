@@ -1,46 +1,69 @@
 class GamesController < ApplicationController
 
-  def start
-
-    if @game
-      @game.users << @auth
-    else
+  def table
       @game = Game.create
-      @game.users << @auth
-    end
 
-    #adding cards to the dealer's array
-    @dealer = []
-    @deck = DeckOfCards.new
+      all_other_games = Game.all - Game.where( :id => @game.id )
+      
+      if all_other_games != nil
+        all_other_games.each do |i|
+          i.set_is_in_progress(false)
+        end
+      else
+      end
+      
+      @game.users << @auth
+  end
+
+  def bet
+    @auth.bet = params[:bet_amount]
+    @game.deck = DeckOfCards.new
+    @deck = @game.deck
     @deck.shuffle
+
+    deal
+  end  
+
+
+  def deal
+
+    @dealer_array = []
+
+
     d1 = @deck.draw
-    @dealer << d1
+    @dealer_array << d1
     d2 = @deck.draw
-    @dealer << d2
+    @dealer_array << d2
+
+    @dealer_strings = @dealer_array.map {|i| i.to_s}
 
     #adding cards to the users's array, @card defined in attr_accessor, being stored in session
     @auth.cards = []
     c1 = @deck.draw
-    @auth.cards << c1
     c2 = @deck.draw
+
+    @auth.cards << c1
     @auth.cards << c2
 
+    @auth_cards_strings = @auth.cards.map {|i| i.to_s}
+
     #getting value of card1 and card2
-    card1 = @game.users[0].cards[0].value
-    card2 = @game.users[0].cards[1].value
+    card1val = @auth.cards[0].value
+    card2val = @auth.cards[1].value
 
     #if cards are Jack, Queen or King, then set value at 10
-    if card1 > 10 && card1 < 14
-      card1 = 10
+    if card1val > 10 && card1val < 14
+      card1val = 10
     end
 
-    if card2 > 10 && card2 < 14
-      card2 = 10
+    if card2val > 10 && card2val < 14
+      card2val = 10
     end
 
     #get user total
-    @user_total = card1 + card2
+    @auth_total = @auth.cards.map {|i| i.value}.inject(&:+)
 
+    @dealer_total = @dealer_array.map {|i| i.value}.inject(&:+)
 
     # if user total is greater than 21 and they have a card with a rank of Ace then make Ace value = 1
     # if sum == 21
@@ -52,13 +75,27 @@ class GamesController < ApplicationController
     #     losepath
     #   end
     # end
+  end
 
+  def hit
+    @game.deck = DeckOfCards.new #this is not right
+    @deck = @game.deck
+    @deck.shuffle
+
+    binding.pry
+    c = @deck.draw
+    
+    @auth.cards << c
+
+    @auth_cards_strings = @auth.cards.map {|i| i.to_s}
+
+    @auth_total = @auth.cards.map {|i| i.value}.inject(&:+)
 
   end
 
-  def bet
-    @auth.bet = params[:bet_amount]
+  def stay
 
-  end  
+  end
+
 end
 

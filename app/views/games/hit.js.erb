@@ -1,0 +1,6 @@
+$('#auth_cards').prepend('<p>Total value: <%= @auth_total %></p>');
+
+<% @auth_cards_strings.each do |i| %>
+  $('#auth_cards').prepend('<li><%= i %></li>');
+<% end %>
+

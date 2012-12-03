@@ -14,16 +14,17 @@
 #  amount_lost     :decimal(, )      default(0.0)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  logged_in       :boolean
 #
 
 class User < ActiveRecord::Base
 
   attr_accessor :cards, :bet
 
-  def initialize
-    @cards = []
-    @bet
-  end
+  # def initialize
+  #   @cards = []
+  #   @bet
+  # end
 
   has_and_belongs_to_many :games
   has_secure_password

@@ -1,1 +1,15 @@
-$('#user_info').prepend('<p>Bet amount:<%= @auth.bet %></p>')
+$('#user_info').prepend('<p>Bet amount:<%=j @auth.bet %>');
+
+<% @auth_cards_strings.each do |i| %>
+  $('#auth_cards').prepend('<li><%= i %></li>');
+<% end %>
+
+$('#auth_cards').prepend('<p>Total value: <%= @auth_total %></p>');
+
+<% @dealer_strings.each do |i| %>
+  $('#dealer_cards').prepend('<li><%= i %></li>');
+<% end %>
+
+$('#dealer_info').prepend('<p>Total value: <%= @dealer_total %></p>');
+
+$('#hitorstay').show();
